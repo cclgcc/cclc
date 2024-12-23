@@ -1,0 +1,20 @@
+<script>
+    function spawnEmoji() {
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji-rain';
+        emoji.textContent = ['🦊', '🐱', '💖', '🌸', '✨'][Math.floor(Math.random() * 5)];
+        const x = Math.random() * window.innerWidth;
+        const y = -Math.random() * 2000;
+        emoji.style.left = `${x}px`;
+        emoji.style.top = `${y}px`;
+        emoji.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        document.querySelector('.emoji-rain-container').appendChild(emoji);
+
+        emoji.addEventListener('animationend', () => {
+            document.querySelector('.emoji-rain-container').removeChild(emoji);
+        });
+    }
+
+    setInterval(spawnEmoji, 100); // 增加下落频率
+</script>
+
